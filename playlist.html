@@ -1,0 +1,197 @@
+<html lang="en" class=""><head>
+
+    <meta charset="UTF-8">
+    <title>Playlist</title>
+  
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="/js/playlist.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="canonical" href="https://codepen.io/vinicius-simoes/pen/ExvxWYj">
+    <nav class="navbar navbar-light fixed-top bg-light shadow-sm">
+        <div class="container-lg">
+          <a class="navbar-brand text-danger fw-bold fs-4" href="index2.html">Portfolio - Nathalia</a>
+          <div class="dropdown">
+             <button class="btn btn-secondary btn-danger px-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+             <i class="fas fa-bars"></i>
+             </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#home">Home</a></li>
+              <li><a class="dropdown-item" href="#about">Quem Sou</a></li>
+              <li><a class="dropdown-item" href="/playlist.html">Playlist</a></li>
+              <li><a class="dropdown-item" href="/curriculo.html">Curriculo</a></li>
+              <li><a class="dropdown-item" href="/contato.html">Contato</a></li>
+            </ul>
+         </div>
+       </div>
+     </nav>
+  </head>
+    
+    
+  
+    <style id="INLINE_PEN_STYLESHEET_ID">
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    background-image: url("https://image.freepik.com/fotos-gratis/microfone-preto-e-prata-sobre-um-fundo-preto_87358-31.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin: auto;
+    background-color: #1e1e1e;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 25px;
+    position: relative;
+  }
+  
+  .page-title {
+    font-family: "Lobster", cursive;
+    color: #ffff;
+    margin: 0 0 5px;
+    font-size: 28pt;
+  }
+  
+  .page-subtitle {
+    color: #ffff;
+    margin-top: 1px;
+    font-size: 17pt;
+  }
+  
+  img {
+    max-height: 190px;
+    margin: 6px;
+    border-radius: 10%;
+  }
+  
+  img:hover {
+    box-shadow: 0px 0px 5px 5px rgb(255, 255, 255);
+  }
+  
+  #button-add {
+    background-color: rgb(241, 241, 241);
+    color: black;
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  
+  #name,
+  #image,
+  #nameSinger,
+  #album {
+    width: 180px;
+    height: 30px;
+    margin: 10px;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .cardMusicsName {
+    position: relative;
+    display: inline-block;
+    padding: 30px;
+    margin: 0 auto;
+  }
+  
+  .cardMusicsName .cardSingerName {
+    visibility: hidden;
+    width: 150px;
+    background-color: black;
+    color: #ffff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 10px;
+    top: 93%;
+    left: 50%;
+    margin-left: -80px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .cardMusicsName:hover .cardSingerName {
+    visibility: visible;
+    z-index: 100;
+  }
+  
+  label {
+    color: white;
+  }
+  
+  #crescentOrder,
+  #descendingOrder {
+    cursor: pointer;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 60px;
+    height: 50px;
+    background-color: #000;
+    text-decoration: none;
+    border-radius: 30%;
+  }
+  
+  .btn::after {
+    content: "↑";
+    font-size: 32px;
+    font-weight: bold;
+    color: aliceblue;
+  }
+  
+    </style>
+  
+    
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6bce046e7128ddf9391ccf7acbecbf7ce0cbd7b6defbeb2e217a867f51485d25.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+  </head>
+  
+  <body>
+    <div class="container">
+    <h1 class="page-title">
+      MusicsFlix
+    </h1>
+  
+    <h2 class="page-subtitle">
+      Variedade de Músicas
+    </h2>
+  
+    <input type="text" id="name" placeholder="Nome da Música">
+    <input type="text" id="nameSinger" placeholder="Nome do cantor/banda">
+    <input type="text" id="album" placeholder="Nome do álbum">
+    <input type="text" id="image" placeholder="Insira o endereço da imagem"><br>
+    <input type="button" id="button-add" value="Adicionar Música" onclick="addMusic()">
+  </div>
+  
+  <input type="radio" id="crescentOrder" name="order" value="crescentOrder" onclick="crescentOrder()">
+  <label for="crescentOrder">Ordem Crescente</label>
+  <input type="radio" id="descendingOrder" name="order" value="descendingOrder" onclick="descendingOrder()">
+  <label for="descendingOrder">Ordem Descrescente</label>
+  
+  <section></section>
+  <a href="#" class="btn"></a>
+  
+  <div id="nameMusics"><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Yellow<hr>Cantor: <br> Coldplay<hr>Album: <br> Parachute</span><img src="https://upload.wikimedia.org/wikipedia/pt/6/6c/Parachutes.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> is there someone else<hr>Cantor: <br> The weeknd <hr>Album: <br> Dawn FM</span><img src="https://www.radiomaniafm.com.br/wp-content/uploads/2023/01/264x264-000000-80-0-0.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> the less i know the bette Together<hr>Cantor: <br> Tame impala<hr>Album: <br> In Between Dreams</span><img src="/img/eu/Currents_Tame_Impala.png"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br>Anna Júlia<hr>Cantor: <br> Los Hermanos<hr>Album: <br> Coisa de Louco EP</span><img src="/img/eu/los-hermanos (1).jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Always<hr>Cantor: <br> Bon Jovi - <hr>Album: <br> Always</span><img src="/img/eu/d3d7f55ed7d5d9c673adbaecec5963b3.png"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> need to know<hr>Cantor: <br> doja cat<hr>Album: <br> </span><img src="/img/eu/doja 2.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> x industry baby<hr>Cantores: <br> lil nas,  <hr>Album: <br> </span><img src="/img/eu/Industry_Baby_-_Lil_Nas_X_&_Jack_Harlow.png"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> how you remind me<hr>Cantor: <br> nickelback <hr>Album: <br> how you remind me</span><img src="/img/eu/nick.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> - as long as you love me<hr>Cantor: <br> backstreet boys <hr>Album: <br> as long as you love me</span><img src="/img/eu/d3d7f55ed7d5d9c673adbaecec5963b3.png"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Big Time Rush<hr>Cantor: <br> Big Time Rush<hr>Album: <br> Big Time Rush</span><img src="http://pm1.narvii.com/6988/f574ace0fa007cb64575bbbdb66ed9b4802b9722r1-554-554v2_00.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Querendo Te Encontrar<hr>Cantor: <br> Onze:20<hr>Album: <br> Vida Loka</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/c/8/3/5/395321415452906.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Bom Dia<hr>Cantor: <br> Nego Jhá<hr>Album: <br> Bom Dia</span><img src="https://cdns-images.dzcdn.net/images/cover/43269db08084bf03982b7f850845fa24/500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> O Nosso Santo Bateu - Live<hr>Cantores: <br> Matheus &amp; Kauan<hr>Album: <br> Na Praia (Ao Vivo)</span><img src="https://i1.sndcdn.com/artworks-000148511713-2bmn20-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> I WANNA BE YOUR SLAVE<hr>Cantor: <br> Måneskin<hr>Album: <br> Teatro d'ira - Vol. I</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/e/6/7/8/1084651622037106.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Vou Revelar<hr>Cantor: <br> Atitude 67<hr>Album: <br> Atitude No Rolê - Onda</span><img src="https://www.connectmix.com/wp-content/uploads/2020/12/lancamento-12.png"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Isso É Amor<hr>Cantores: <br> Atitude 67, Analaga, Vitor Kley<hr>Album: <br> Isso É Amor</span><img src="https://linkstorage.linkfire.com/medialinks/images/9b41573d-78f4-46ed-a884-96186727a1d9/artwork-440x440.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Nothing Else Matters<hr>Cantor: <br> Metallica<hr>Album: <br> Metallica</span><img src="https://i1.sndcdn.com/artworks-000438871638-im9eal-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Baby Me Atende<hr>Cantores: <br> Matheus Fernandes, Dilsinho<hr>Album: <br> Baby Me Atende</span><img src="https://98fmnatal.com.br/wp-content/uploads/2021/10/Dilsinho3.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Passarinho Que Som É Esse<hr>Cantores: <br> DJ Topo, MC Cyclope, MC Pr<hr>Album: <br> Passarinho Que Som É Esse</span><img src="https://cdns-images.dzcdn.net/images/cover/864bd4da1aedde79fec6a0b4c100cca8/500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Se Essa Bunda<hr>Cantores: <br> Costa Gold, Kawe, André Nine<hr>Album: <br> Se Essa Bunda</span><img src="https://i1.sndcdn.com/artworks-l5VNLuvtWdaq-0-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Dinero<hr>Cantor: <br> Trinidad Cardona<hr>Album: <br> Dinero</span><img src="https://direct.rhapsody.com/imageserver/images/alb.297971001/600x600.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Serenata Existencialista<hr>Cantor: <br> O Grilo<hr>Album: <br> Herói do Futuro</span><img src="https://cdns-images.dzcdn.net/images/cover/c6ed59cd2a52c2f8385495904aaa1bd1/500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Tipo Gin - Ao Vivo<hr>Cantor: <br> MC Kevin o Chris<hr>Album: <br> Todo Mundo Ama o Chris (Ao Vivo)</span><img src="https://i1.sndcdn.com/artworks-xyMCLUiTayQ6w3KT-8kBRKA-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Bipolar<hr>Cantores: <br> MC Davi, MC Pedrinho, MC Don Juan<hr>Album: <br> Bipolar</span><img src="https://images.suamusica.com.br/Or4uG_3P7zMhxrzA7xN8tjiwjdA=/500x500/8284313/3242738/cd_cover.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> O Vagabundo e a Dama<hr>Cantor: <br> Oriente<hr>Album: <br> Desorientado</span><img src="https://images.genius.com/50f72b851ffd9c8aa75a5560c27ae830.800x800x1.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Atrasadinha<hr>Cantor: <br> Felipe Araújo, Ferrugem<hr>Album: <br> Por Inteiro (Ao Vivo)</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/1/8/1/8/687581548073188.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Rei Lacoste<hr>Cantores: <br> MD Chefe, DomLaike<hr>Album: <br> Rei Lacoste</span><img src="https://i1.sndcdn.com/artworks-B85FOtTwpaHv9Hft-7UiZEg-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Alive<hr>Cantor: <br> Pearl Jam<hr>Album: <br> Ten</span><img src="https://img.discogs.com/O_mOULxADe6krgPlhRgro2We_rQ=/fit-in/550x541/filters:strip_icc():format(webp):mode_rgb():quality(90)/discogs-images/R-1050768-1192322470.jpeg.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Surfando nos Mandela<hr>Cantores: <br> MC Menor MT, DJ Digo Beat<hr>Album: <br> Surfando nos Mandela</span><img src="https://p16-amd-va.tiktokcdn.com/img/tos-useast2a-v-2774/5613e3f587ca40bfbcb9f32532770451~c5_720x720.jpeg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Não Quer Chifre<hr>Cantores: <br> MC Frog, DJ Lucas Beat<hr>Album: <br> Não Quer Chifre</span><img src="https://i1.sndcdn.com/artworks-mnTeZO8dr9AXV7Ms-QQPNFg-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Não, Não Vou<hr>Cantor: <br> Mari Fernandez<hr>Album: <br> Piseiro Sofrência</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/a/a/4/c/aa4c8872c436cea8451cd25c8af4f154.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Tipo Surfista<hr>Cantores: <br> DJ Cleitinho, MC Menor MT<hr>Album: <br> Tipo Surfista</span><img src="https://i1.sndcdn.com/artworks-rxs1dtREHKTkFznb-ztJwPg-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> De Mais Ninguém<hr>Cantor: <br> Edu Ribeiro<hr>Album: <br> Luau</span><img src="https://i1.sndcdn.com/avatars-000006513751-013pfk-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Summer<hr>Cantor: <br> Calvin Harris<hr>Album: <br> Motion</span><img src="https://i1.sndcdn.com/artworks-000544042710-e14hfs-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Plutão<hr>Cantor: <br> VMZ<hr>Album: <br> Plutão</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/7/2/7/f/1094131623414154.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Balada Louca<hr>Cantores: <br> Munhoz &amp; Mariano, João Neto &amp; Frederico<hr>Album: <br> Ao Vivo em Campo Grande - Vol. II</span><img src="https://direct.rhapsody.com/imageserver/images/alb.161617249/500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Mun Rá<hr>Cantores: <br> Sabotage, Instituto<hr>Album: <br> Mun Rá (Edição Comemorativa)</span><img src="https://i1.sndcdn.com/artworks-000047269963-kwzoci-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Esquema Preferido - Ao Vivo<hr>Cantor: <br> Os Barões da Pisadinha<hr>Album: <br> Da Roça Pra Cidade (Ao Vivo)</span><img src="https://images.genius.com/c7776115fd9512f64fd5ebf63af976f8.1000x1000x1.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Demons<hr>Cantor: <br> Imagine Dragons<hr>Album: <br> Night Visions</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/2/9/4/b/273741571234423.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> One More Night<hr>Cantor: <br> Maroon 5<hr>Album: <br> Overexposed Track by Track</span><img src="https://i1.sndcdn.com/artworks-000095826392-ri2sbb-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Boombastic<hr>Cantor: <br> Shaggy<hr>Album: <br> Boombastic</span><img src="https://gringoscds.com.br/produtos/2244/20170318163607_shaggy-boombastic.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> This Love<hr>Cantor: <br> Maroon 5<hr>Album: <br> Song About Jane: Anniversary Edition</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/0/0/7/9/11327.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Oh! Chuva<hr>Cantor: <br> Falamansa<hr>Album: <br> Essa é Pra Vocês</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/f/4/4/e/62821419954158.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Colorir Papel<hr>Cantor: <br> Jammil e Uma Noites<hr>Album: <br> Jammil na Real</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/0/9/e/f/24515.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> 24K Magic<hr>Cantor: <br> Bruno Mars<hr>Album: <br> 24K Magic</span><img src="https://upload.wikimedia.org/wikipedia/pt/1/19/Bruno_Mars-24K_Magic.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> O Sol, a Lis e o Beija-Flor - Ao Vivo<hr>Cantor: <br> Edu Ribeiro<hr>Album: <br> Edu Ribeiro (Ao Vivo)</span><img src="https://direct.rhapsody.com/imageserver/images/alb.301147670/500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Blurred Lines<hr>Cantores: <br> Robin Thicke, T.I., Pharrel Willians<hr>Album: <br> Blurred Lines (Deluxe)</span><img src="https://i1.sndcdn.com/artworks-000668154253-xbezdx-t500x500.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Xote dos Milagres<hr>Cantor: <br> Falamansa<hr>Album: <br> Deixa Entrar...</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/7/c/9/0/62811419954196.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Praieiro<hr>Cantor: <br> Jammil<hr>Album: <br> Jammil de Todas as Praias - Ao Vivo</span><img src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/b/5/f/7/b5f746a31eba95d270af88c54214a67a.jpg"></span><span class="cardMusicsName"><span class="cardSingerName">Música: <br> Bora<hr>Cantor: <br> Forró Cintura de Mola<hr>Album: <br> Pancadão Lambadão</span><img src="https://i1.sndcdn.com/artworks-n7mDhp0vDVRo-0-t500x500.jpg"></span></div>
+    
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-64c41f7f-b74b-7354-8d9d-6146b2fb5ef1" crossorigin=""></script>
+  
+  
+  </body></html>

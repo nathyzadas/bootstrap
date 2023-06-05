@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contato.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>contato</title>
+   
+
+    
+       
+      
+        <meta name="apple-mobile-web-app-title" content="CodePen">
+      
+        <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+      
+        <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+      
+       
+  
+</head>
+        
+<nav class="navbar navbar-light fixed-top bg-light shadow-sm">
+    <div class="container-lg">
+      <a class="navbar-brand text-danger fw-bold fs-4" href="index2.html">Portfolio - Nathalia</a>
+      <div class="dropdown">
+         <button class="btn btn-secondary btn-danger px-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="fas fa-bars"></i>
+         </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#home">Home</a></li>
+          <li><a class="dropdown-item" href="#about">Quem Sou</a></li>
+          <li><a class="dropdown-item" href="/playlist.html">Playlist</a></li>
+          <li><a class="dropdown-item" href="/curriculo.html">Curriculo</a></li>
+          <li><a class="dropdown-item" href="/contato.html">Contato</a></li>
+        </ul>
+     </div>
+   </div>
+ </nav>
+   
+        
+      <style>
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: weight;
+        font-style: normal;
+        padding: 10px;
+      }
+      form fieldset {
+        border: none;
+        font-weight: normal;
+      }
+      form input[type="text"],
+      form input[type="email"],
+      form textarea {
+        box-sizing: border-box;
+        outline: none;
+        display: block;
+        color: #333;
+        width: 100%;
+        padding: 7px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+        font-family: inherit;
+        font-size: 18px;
+        height: 45px;
+      }
+      form textarea {
+        height: 200px;
+      }
+      form button[type="submit"] {
+        display: block;
+        padding: 19px 39px 18px 39px;
+        color: #fff;
+        background: #1abc9c;
+        font-size: 18px;
+        width: 100%;
+        border: 1px solid #16a085;
+        border-width: 1px 1px 3px;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        outline: none;
+      }
+      form button[type="submit"]:hover {
+        background: #109177;
+      }
+      </style>
+      
+        <script>
+        window.console = window.console || function(t) {};
+      </script>
+      
+        
+        
+        <script>
+        if (document.location.search.match(/type=embed/gi)) {
+          window.parent.postMessage("resize", "*");
+        }
+      </script>
+      
+      
+      </head>
+      
+      <body translate="no">
+        <form method="POST" action="https://formspree.io/thiago.rossener@gmail.com">
+        <fieldset>
+          <input type="hidden" name="_subject" value="Novo contato!">
+          <input type="hidden" name="_next" value="https://www.rossener.com/contato/mensagem-enviada/">
+          <input type="hidden" name="_language" value="pt">
+      
+          <input type="text" name="nome" placeholder="Seu nome">
+      
+          <input type="text" name="email" placeholder="Seu e-mail">
+      
+          <input type="text" name="nome" placeholder="Seu nome">
+
+
+          <textarea name="mensagem" placeholder="Sua mensagem"></textarea>
+      
+          <button type="submit">Enviar</button>
+        </fieldset>
+      </form>
+
+      </body>
